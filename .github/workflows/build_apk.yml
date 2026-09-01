@@ -20,11 +20,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew assembleDebug --stacktrace
+      - name: Build APK with Gradle
+        run: ./gradlew assemble --stacktrace
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ONEBR-TV-App
-          path: app/build/outputs/apk/debug/*.apk
+          name: ONEBR-TV-APK
+          path: "**/build/outputs/apk/**/*.apk"
